@@ -1,0 +1,9 @@
+# Server dependencies
+node_modules/
+
+# Server env
+.env
+
+# Logs
+logs/
+npm-debug.log*

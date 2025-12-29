@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 90%;
+    --secondary-foreground: 220 20% 10%;
+
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    /* Task labels */
+    --label-red: 0 84% 60%;
+    --label-orange: 25 95% 53%;
+    --label-yellow: 48 96% 53%;
+    --label-green: 142 71% 45%;
+    --label-blue: 217 91% 60%;
+    --label-purple: 262 83% 58%;
+    --label-pink: 330 81% 60%;
+    --label-cyan: 173 80% 40%;
+
+    /* Priority colors */
+    --priority-low: 142 71% 45%;
+    --priority-medium: 48 96% 53%;
+    --priority-high: 25 95% 53%;
+    --priority-urgent: 0 84% 60%;
+
+    /* Glow effects */
+    --glow-primary: 262 83% 58%;
+    --glow-accent: 173 80% 40%;
+
+    --sidebar-background: 220 20% 97%;
+    --sidebar-foreground: 220 20% 10%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 13% 87%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+  .dark {
+    --background: 230 25% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 230 25% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 25% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 20% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 230 20% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 20% 18%;
+    --input: 230 20% 20%;
+    --ring: 262 83% 58%;
+
+    /* Task labels (same in dark mode for vibrancy) */
+    --label-red: 0 84% 60%;
+    --label-orange: 25 95% 53%;
+    --label-yellow: 48 96% 53%;
+    --label-green: 142 71% 45%;
+    --label-blue: 217 91% 60%;
+    --label-purple: 262 83% 58%;
+    --label-pink: 330 81% 60%;
+    --label-cyan: 173 80% 40%;
+
+    /* Priority colors */
+    --priority-low: 142 71% 45%;
+    --priority-medium: 48 96% 53%;
+    --priority-high: 25 95% 53%;
+    --priority-urgent: 0 84% 60%;
+
+    /* Glow effects */
+    --glow-primary: 262 83% 58%;
+    --glow-accent: 173 80% 40%;
+
+    --sidebar-background: 230 25% 9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 20% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 230 20% 18%;
+    --sidebar-ring: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+    color-scheme: dark;
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.3),
+                0 0 40px hsl(var(--glow-primary) / 0.1);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--glow-accent) / 0.3),
+                0 0 40px hsl(var(--glow-accent) / 0.1);
+  }
+
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glass-hover {
+    @apply hover:bg-card/90 hover:border-border/80 transition-all duration-300;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .task-card-glow {
+    @apply transition-all duration-300;
+  }
+
+  .task-card-glow:hover {
+    box-shadow: 0 8px 32px hsl(var(--glow-primary) / 0.15);
+  }
+}

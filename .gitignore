@@ -1,0 +1,9 @@
+# Root dependencies
+node_modules/
+
+# Root env
+.env
+
+# Build
+dist/
+build/
