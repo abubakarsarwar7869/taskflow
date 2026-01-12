@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 90%;
+    --secondary-foreground: 220 20% 10%;
+
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    /* Banner Background Gradients */
+    --slate-950: 222 47% 11%;
+    --purple-950: 270 50% 15%;
+    --slate-900: 222 47% 18%;
+
+    /* Extended Purple Palette */
+    --purple-400: 262 83% 68%;
+    --purple-500: 262 83% 58%;
+    --purple-600: 262 83% 48%;
+    --purple-700: 262 83% 38%;
+
+    /* Cyan/Teal Accents */
+    --cyan-400: 186 94% 65%;
+    --cyan-500: 186 94% 55%;
+    --cyan-600: 186 94% 45%;
+
+    /* Violet Accents */
+    --violet-400: 258 90% 68%;
+    --violet-500: 258 90% 58%;
+    --violet-600: 258 90% 48%;
+
+    /* Task labels */
+    --label-red: 0 84% 60%;
+    --label-orange: 25 95% 53%;
+    --label-yellow: 48 96% 53%;
+    --label-green: 142 71% 45%;
+    --label-blue: 217 91% 60%;
+    --label-purple: 262 83% 58%;
+    --label-pink: 330 81% 60%;
+    --label-cyan: 173 80% 40%;
+
+    /* Priority colors */
+    --priority-low: 142 71% 45%;
+    --priority-medium: 48 96% 53%;
+    --priority-high: 25 95% 53%;
+    --priority-urgent: 0 84% 60%;
+
+    /* Glow effects */
+    --glow-primary: 262 83% 58%;
+    --glow-accent: 173 80% 40%;
+    --glow-cyan: 186 94% 55%;
+    --glow-violet: 258 90% 58%;
+
+    /* Animation Durations */
+    --duration-fast: 300ms;
+    --duration-normal: 500ms;
+    --duration-slow: 1000ms;
+    --duration-slower: 1400ms;
+
+    /* Animation Delays */
+    --delay-100: 100ms;
+    --delay-200: 200ms;
+    --delay-400: 400ms;
+    --delay-600: 600ms;
+    --delay-1000: 1000ms;
+    --delay-2000: 2000ms;
+    --delay-4000: 4000ms;
+
+    /* Sidebar */
+    --sidebar-background: 220 20% 97%;
+    --sidebar-foreground: 220 20% 10%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 13% 87%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+  .dark {
+    --background: 230 25% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 230 25% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 25% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 20% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 230 20% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 20% 18%;
+    --input: 230 20% 20%;
+    --ring: 262 83% 58%;
+
+    /* Banner Background Gradients */
+    --slate-950: 222 47% 5%;
+    --purple-950: 270 50% 10%;
+    --slate-900: 222 47% 11%;
+
+    /* Extended Purple Palette */
+    --purple-400: 262 83% 68%;
+    --purple-500: 262 83% 58%;
+    --purple-600: 262 83% 48%;
+    --purple-700: 262 83% 38%;
+
+    /* Cyan/Teal Accents */
+    --cyan-400: 186 94% 65%;
+    --cyan-500: 186 94% 55%;
+    --cyan-600: 186 94% 45%;
+
+    /* Violet Accents */
+    --violet-400: 258 90% 68%;
+    --violet-500: 258 90% 58%;
+    --violet-600: 258 90% 48%;
+
+    /* Task labels (same in dark mode for vibrancy) */
+    --label-red: 0 84% 60%;
+    --label-orange: 25 95% 53%;
+    --label-yellow: 48 96% 53%;
+    --label-green: 142 71% 45%;
+    --label-blue: 217 91% 60%;
+    --label-purple: 262 83% 58%;
+    --label-pink: 330 81% 60%;
+    --label-cyan: 173 80% 40%;
+
+    /* Priority colors */
+    --priority-low: 142 71% 45%;
+    --priority-medium: 48 96% 53%;
+    --priority-high: 25 95% 53%;
+    --priority-urgent: 0 84% 60%;
+
+    /* Glow effects */
+    --glow-primary: 262 83% 58%;
+    --glow-accent: 173 80% 40%;
+    --glow-cyan: 186 94% 55%;
+    --glow-violet: 258 90% 58%;
+
+    /* Animation Durations */
+    --duration-fast: 300ms;
+    --duration-normal: 500ms;
+    --duration-slow: 1000ms;
+    --duration-slower: 1400ms;
+
+    /* Animation Delays */
+    --delay-100: 100ms;
+    --delay-200: 200ms;
+    --delay-400: 400ms;
+    --delay-600: 600ms;
+    --delay-1000: 1000ms;
+    --delay-2000: 2000ms;
+    --delay-4000: 4000ms;
+
+    /* Sidebar */
+    --sidebar-background: 230 25% 9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 20% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 230 20% 18%;
+    --sidebar-ring: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+    color-scheme: dark;
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Fix Autofill Styling */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #000 !important;
+    /* Force black text for suggest */
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px hsl(var(--accent) / 0.15);
+  }
+
+  .dark input:-webkit-autofill {
+    -webkit-text-fill-color: #000 !important;
+    box-shadow: inset 0 0 20px 20px hsl(var(--accent) / 0.25);
+  }
+
+
+
+  /* Modern Branded Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full hover:bg-primary/50;
+  }
+}
+
+@layer utilities {
+
+  /* Shadow & Glow Effects */
+  .shadow-glow {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.3),
+      0 0 40px hsl(var(--glow-primary) / 0.1);
+  }
+
+  .shadow-glow-primary {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.5),
+      0 0 40px hsl(var(--glow-primary) / 0.2);
+  }
+
+  .shadow-glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--glow-cyan) / 0.5),
+      0 0 40px hsl(var(--glow-cyan) / 0.2);
+  }
+
+  .shadow-glow-violet {
+    box-shadow: 0 0 20px hsl(var(--glow-violet) / 0.5),
+      0 0 40px hsl(var(--glow-violet) / 0.2);
+  }
+
+  .shadow-3xl {
+    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Legacy glow utilities (for backward compatibility) */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.3),
+      0 0 40px hsl(var(--glow-primary) / 0.1);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px hsl(var(--glow-accent) / 0.3),
+      0 0 40px hsl(var(--glow-accent) / 0.1);
+  }
+
+  /* Glass Effects */
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glass-hover {
+    @apply hover:bg-card/90 hover:border-border/80 transition-all duration-300;
+  }
+
+  /* Background Gradients */
+  .bg-banner-gradient {
+    background: linear-gradient(to bottom right,
+        hsl(var(--slate-950)),
+        hsl(var(--purple-950)),
+        hsl(var(--slate-900)));
+  }
+
+  /* Scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Animations */
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in var(--duration-slow) ease-out;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up var(--duration-slow) ease-out;
+  }
+
+  /* Text Effects */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Task Card Effects */
+  .task-card-glow {
+    /* Transitions moved to component level for better control */
+  }
+
+  .task-card-glow:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Drag and Drop Shifting */
+  [data-rbd-draggable-id] {
+    will-change: transform;
+  }
+
+  [data-rbd-drag-handle-context-id] {
+    cursor: grab !important;
+  }
+
+  /* Prevent text selection during drag */
+  [data-rbd-drag-handle-context-id] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: grab !important;
+  }
+
+  [data-rbd-drag-handle-context-id]:active {
+    cursor: grabbing !important;
+  }
+
+  /* Button Utilities */
+  .bg-size-200 {
+    background-size: 200%;
+  }
+
+  .bg-pos-0 {
+    background-position: 0%;
+  }
+
+  .bg-pos-100 {
+    background-position: 100%;
+  }
+
+  .mesh-grid {
+    @apply absolute inset-0 pointer-events-none;
+    background-image:
+      linear-gradient(to right, #80808012 1px, transparent 1px),
+      linear-gradient(to bottom, #80808012 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .mesh-grid-prominent {
+    @apply absolute inset-0 pointer-events-none;
+    background-image:
+      linear-gradient(to right, #80808033 1px, transparent 1px),
+      linear-gradient(to bottom, #80808033 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+  }
+}
